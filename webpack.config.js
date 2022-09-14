@@ -1,6 +1,18 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const glob = require('glob');
+
+let htmlPlugins = [];
+
+let files = glob.sync('./src/views/*.twig');
+files.forEach(file => {
+  let htmlPlugin = new HtmlWebpackPlugin({
+    filename: file.split('/').at(-1).replace('twig','html'),
+    template: file
+  });
+  htmlPlugins.push(htmlPlugin);
+});
 
 module.exports = {
     entry: './src/index.js',
@@ -25,12 +37,19 @@ module.exports = {
             test: /\.scss$/i,
             use: [MiniCssExtractPlugin.loader,"css-loader", "sass-loader"],
           },
+          {
+            test: /\.twig$/,
+            use: {
+              loader: 'twig-loader',
+              options: {
+                  // See options section below
+              },
+            }
+        }
         ],
       },
-    plugins: [new HtmlWebpackPlugin({
-        title: 'Robin on Gobllin lmao',
-        template: './src/index.html'
-        }),
-        new MiniCssExtractPlugin()
+    plugins: [
+        ...htmlPlugins,
+    new MiniCssExtractPlugin()
     ],
 };
