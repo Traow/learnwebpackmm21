@@ -1,23 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const glob = require('glob');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
-
-let htmlPlugins = [];
-
-const PATHS = {
-  src: path.join(__dirname, 'src/views')
-}
-
-let files = glob.sync('./src/views/*.twig');
-files.forEach(file => {
-  let htmlPlugin = new HtmlWebpackPlugin({
-    filename: file.split('/').at(-1).replace('twig','html'),
-    template: file
-  });
-  htmlPlugins.push(htmlPlugin);
-});
+const {VueLoaderPlugin} = require('vue-loader');
 
 module.exports = {
     entry: './src/index.js',
@@ -39,26 +23,25 @@ module.exports = {
             use: [MiniCssExtractPlugin.loader, "css-loader"],
           },
           {
-            test: /\.scss$/i,
-            use: [MiniCssExtractPlugin.loader,"css-loader", "sass-loader"],
+            test: /\.s[ca]ss$/i,
+            use: [MiniCssExtractPlugin.loader, "css-loader", 'sass-loader'],
           },
           {
-            test: /\.twig$/,
-            use: {
-              loader: 'twig-loader',
-              options: {
-                  // See options section below
-              },
-            }
-        }
+            test: /\.vue$/i,
+            use: ["vue-loader"],
+          },
         ],
       },
     plugins: [
-      new PurgecssPlugin.PurgeCSSPlugin({
-        paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
+      new HtmlWebpackPlugin({
+        template : './src/index.html'
       }),
-        ...htmlPlugins,
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+    new VueLoaderPlugin(),
     ],
-    
+    resolve: {
+      alias: {
+        vue:'vue/dist/vue.esm-bundler.js'
+      }
+    }
 };
