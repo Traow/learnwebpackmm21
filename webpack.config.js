@@ -2,8 +2,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const glob = require('glob');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 let htmlPlugins = [];
+
+const PATHS = {
+  src: path.join(__dirname, 'src/views')
+}
 
 let files = glob.sync('./src/views/*.twig');
 files.forEach(file => {
@@ -49,7 +54,11 @@ module.exports = {
         ],
       },
     plugins: [
+      new PurgecssPlugin.PurgeCSSPlugin({
+        paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
+      }),
         ...htmlPlugins,
     new MiniCssExtractPlugin()
     ],
+    
 };
