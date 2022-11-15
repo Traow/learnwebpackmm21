@@ -6,5 +6,118 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/style.scss (1) ***!
   \*************************************************************************************************************/
 html, body {
-  background-color: #9999ff;
+  background-color: #fac279;
 }
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/pages/Clicker.vue?vue&type=style&index=0&id=43ad6e7e&scoped=true&lang=css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+
+.juicebox_n_cps_background[data-v-43ad6e7e] {
+        background-color: rgba(0, 0, 0, 0.579);
+        width: 2000px;
+        height: 120px;
+        margin-top: -54.5%;
+        margin-left: -20%;
+}
+b[data-v-43ad6e7e] {
+        color: white;
+        font-size: 24px;
+}
+.column[data-v-43ad6e7e]{
+        margin-left: 35%;
+        margin-top: -4%;
+}
+img[data-v-43ad6e7e]{
+        margin-top: 10%;
+        transition: 1.5s;
+        opacity: 50%;
+        animation-name: floating-43ad6e7e;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+}
+img[data-v-43ad6e7e]:hover{
+        transition: 0.6s;
+        opacity: 100%;
+}
+img.click[data-v-43ad6e7e] {
+        transition: 1s;
+        animation: floating2-43ad6e7e;
+        animation-duration: 0.5s;
+}
+.shop-container[data-v-43ad6e7e] {
+        position:relative;
+        background: rgba(0, 0, 0, 0.377);
+        color: white;
+        width: 500px;
+        overflow-y: scroll;
+        height: 577.5px;
+        top: 61px;
+        left: 124px;
+}
+.shop-container[data-v-43ad6e7e]::before {
+            position: absolute;
+            content: "X";
+            top: 0;
+            left: 0;
+            padding: 15px 30px;
+            transform: translateX(-100%);
+            z-index: 1000;
+}
+h2[data-v-43ad6e7e]{
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            background: #111;
+}
+.pad[data-v-43ad6e7e] {
+            padding: 15px 30px;
+}
+.store-list[data-v-43ad6e7e] {
+            display: flex;
+            flex-direction: column;
+            overflow-y:auto;
+}
+.message-body[data-v-43ad6e7e] {
+            font-size: 18px;
+}
+.message[data-v-43ad6e7e] {
+            margin-left: -11%;
+            width: 25%;
+            height: 200px;
+            transition: 1.5s;
+            opacity: 30%;
+}
+.message[data-v-43ad6e7e]:hover {
+            transform: scale(1.1);
+            margin-left: 0.01%;
+            margin-top: 1%;
+            opacity: 100%;
+}
+@keyframes floating-43ad6e7e {
+0% { transform: translate(0,  0px);
+}
+50%  { transform: translate(0, 15px);
+}
+100%   { transform: translate(0, -0px);
+}
+}
+@keyframes floating2-43ad6e7e {
+0% { transform: translate(0,  0px);
+}
+50%  { transform: translate(0, 10px);
+}
+100%   { transform: translate(0, -0px);
+}
+}
+
+
+
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[6].use[0]!./src/components/CharacterCard.vue?vue&type=style&index=0&id=51ed5d59&lang=css ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+
+.card {
+    height: 100%;
+}
+
