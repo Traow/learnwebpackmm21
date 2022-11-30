@@ -34,7 +34,8 @@
         <button @click="upgrade(1000000,100000000)" class="button is-warning is-medium is-fullwidth" :disabled="juiceboxes <=99999999">Buy 1M cps for 100M 🧃</button>
         <br>
         <button @click="upgrade(10000000,1000000000)" class="button is-warning is-medium is-fullwidth" :disabled="juiceboxes <=999999999">Buy 10M cps for 1B 🧃</button>
-        <br> 
+        <br>
+          
     </div>
     </section>
   </div>
@@ -42,21 +43,25 @@
 
   <article class="message is-warning">
   <div class="message-header">
-    <p>Tip #1</p>
+    <p>Funny Buttons</p>
   </div>
-  <div class="message-body">
-    Et mahlapakke kokku hoida ja, et neid rohkem saada ära osta 0.3; 3 ega 30 cpsi!
+  <div>
+    <button onclick="window.location.href='https://youtu.be/dQw4w9WgXcQ'" class="button is-warning is-medium is-fullwidth" >🧃🧃🧃</button>
+    <br>
+    <button onclick="window.location.href='https://download.skype.com/s4l/download/win/Skype-8.91.0.404.exe'" class="button is-warning is-medium is-fullwidth">🧃🧃🧃</button>
   </div>
 </article>
 
+
+
 <article class="message is-warning">
   <div class="message-header">
-    <p>Tip #2</p>
+    <p>Funny Buttons</p>
   </div>
-  <div class="message-body">
-    Kepi raha tee naisi - Sillu
+  <div>
+    <button @click="upgrade1(juiceboxes,1000)" class="button is-warning is-medium is-fullwidth" :disabled="(juiceboxes <=999)">🧃🧃🧃</button>
     <br>
-    Kõik panevad pihku ära ole eriline - Sillu
+    <button @click="upgrade2(2,0)" class="button is-warning is-medium is-fullwidth" :disabled="(juiceboxes <=99999)">🧃🧃🧃</button>
   </div>
 </article>
 
@@ -103,6 +108,18 @@ export default {
                     this.cps += cps;
                 }
             },
+            upgrade1(cost){
+                if(this.juiceboxes >= cost){
+                    this.juiceboxes -= cost;
+                }
+            },
+            upgrade2(cps,cost){
+                if(this.juiceboxes >= cost){
+                    this.juiceboxes =- cost;
+                    this.cps *= cps;
+                    
+                }
+            }
         },
 }
 </script>
